@@ -126,7 +126,7 @@ if (strpos($path, 'lyrics/') !== false) {
          style="display:none;visibility:hidden"></iframe></noscript>
    <!-- End Google Tag Manager (noscript) -->
 
-   <?php if ($isCrawler):  ?>
+   <?php if (!$isCrawler):  ?>
    <?php include 'body-main.html'; ?>
 <?php else: ?>
    <h1> <?=$_SESSION['webTitle']?> </h1><br>
