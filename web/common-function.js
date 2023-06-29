@@ -1154,6 +1154,13 @@ function checkURL() {
         //showHelpDivMessage("Contact us if you have any questions, feedback or are interested in purchasing the software. Some features have been disabled on the web version for security reasons. Full feature software can be used for software training/development, creating references and documentation for the software application. <br><br> If you found the site helpful, you can support our work by buying me a coffee by clicking on the coffee button at the top.");
 
     } else if (pageName == "home") {
+
+        if (sessionStorage.getItem("itemList") == null) {
+            setTimeout(function() {
+                checkURL();
+            }, 200);
+            return;
+        }
         document.getElementById("homeDivId").style.display = "block";
         document.getElementById("contactusDivId").style.display = "none";
         document.getElementById("howtoDivId").style.display = "none";

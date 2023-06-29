@@ -14,14 +14,14 @@ $page_url = $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
 $path = urldecode($_SERVER["REQUEST_URI"]);
 $path = substr($path, 1);
-
+$isPHPUrl = false;
 $isCrawler = isset($_SERVER['HTTP_USER_AGENT'])
 && preg_match('/bot|crawl|slurp|spider|mediapartners|InspectionTool|GoogleOther/i', $_SERVER['HTTP_USER_AGENT']);
-
 
 if (strpos($path, 'lyrics/') !== false) {
    $itemstr = substr($path, strpos($path, "lyrics/") + 7);
    $itemstr = str_replace("-", " ", $itemstr);
+   $isPHPUrl = true;
       if (isset($_SESSION['datafetched_XX'])) {
          $title = $_SESSION['webTitle'];
          $description = $_SESSION['webDesc'];
@@ -126,7 +126,7 @@ if (strpos($path, 'lyrics/') !== false) {
          style="display:none;visibility:hidden"></iframe></noscript>
    <!-- End Google Tag Manager (noscript) -->
 
-   <?php if (!$isCrawler):  ?>
+   <?php if (!$isCrawler || !$isPHPUrl ):  ?>
    <?php include 'body-main.html'; ?>
 <?php else: ?>
    <h1> <?=$_SESSION['webTitle']?> </h1><br>
