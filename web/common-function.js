@@ -42,7 +42,7 @@ function getMySavedSongsList() {
 
     var customeremail = localStorage.getItem("userEmail");
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         type: 'POST',
         data: jQuery.param({
             usrfunction: "getsavedSongsList",
@@ -116,7 +116,7 @@ function showMdaItems() {
 
     var customeremail = localStorage.getItem("userEmail");
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         type: 'POST',
         data: jQuery.param({
             usrfunction: "getMdaItemsList",
@@ -163,7 +163,7 @@ function getMdaItems() {
 
     var customeremail = localStorage.getItem("userEmail");
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         type: 'POST',
         data: jQuery.param({
             usrfunction: "getMdaItemsList",
@@ -202,7 +202,7 @@ function getItemList() {
 	
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         type: 'POST',
         data: jQuery.param({
             usrfunction: "getItemsList"
@@ -259,7 +259,7 @@ function getMovieList(){
 	
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         type: 'POST',
         data: jQuery.param({
             usrfunction: "getMovieList"
@@ -290,7 +290,7 @@ function getMaxCounts() {
 	
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         type: 'POST',
         data: jQuery.param({
             usrfunction: "getMaxCounts"
@@ -335,7 +335,7 @@ function getRandomMovie(){
     document.getElementById("filtersDivId").style.display = "none";
 
     var newHTML = "<div id='movieGenerator'><div id='movienameDiv'>" ;
-    newHTML = newHTML + "<img class='movieImageCls' alt ='' src='/Antaksharee/img/"+ "Jab We Met" +".png'> <br>" +  "Jab We Met" + "</div><button   type='button' class='rndmBtn' onclick=updateMovieName() >Generate New</button></div><br><br><br><br><br><br><br><br><br><br><br><br>";
+    newHTML = newHTML + "<img class='movieImageCls' alt ='' src='/readernook/Antaksharee/img/"+ "Jab We Met" +".png'> <br>" +  "Jab We Met" + "</div><button   type='button' class='rndmBtn' onclick=updateMovieName() >Generate New</button></div><br><br><br><br><br><br><br><br><br><br><br><br>";
 
     document.getElementById("cardsContainerDivId").innerHTML = newHTML;
 
@@ -377,8 +377,8 @@ function updateMovieName(){
     the.movieSeq = nbr;
     var movie = tags[nbr].moviename;
 
-    document.getElementById("movienameDiv").innerHTML = "<img class='movieImageCls'  alt ='' src='/Antaksharee/img/"+ movie +".png'>" + "<br>" +  movie;
-    //document.getElementById("movienameDiv").innerHTML = '<object class="movieImageClsLyrics" data="/Antaksharee/img/' + movie + '.png" type="image/png"><img src="/Antaksharee/img/backup.png" /></object>' + "<br>" +  movie;
+    document.getElementById("movienameDiv").innerHTML = "<img class='movieImageCls'  alt ='' src='/readernook/Antaksharee/img/"+ movie +".png'>" + "<br>" +  movie;
+    //document.getElementById("movienameDiv").innerHTML = '<object class="movieImageClsLyrics" data="/readernook/Antaksharee/img/' + movie + '.png" type="image/png"><img src="/readernook/Antaksharee/img/backup.png" /></object>' + "<br>" +  movie;
 
 	const id = 'movieGenerator';
 	const yOffset = -50; 
@@ -397,7 +397,7 @@ function getItemLyrics(origsongtitle) {
     songtitle = origsongtitle.replaceAll("-", " ")
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         type: 'POST',
         data: jQuery.param({
             usrfunction: "getItemLyrics",
@@ -497,8 +497,8 @@ function getItemLyrics(origsongtitle) {
             }
             newHTML = newHTML + '</div>';
             if (moviename != ""){
-            newHTML = newHTML + '<img class="movieImageClsLyrics" alt="' + moviename + '" onerror="hideMe(this)" src="/Antaksharee/img/' + moviename + '.png">';
-            //newHTML = newHTML + '<object class="movieImageClsLyrics" data="/Antaksharee/img/' + moviename + '.png" type="image/png"><img src="/Antaksharee/img/backup.png" /></object>';   
+            newHTML = newHTML + '<img class="movieImageClsLyrics" alt="' + moviename + '" onerror="hideMe(this)" src="/readernook/Antaksharee/img/' + moviename + '.png">';
+            //newHTML = newHTML + '<object class="movieImageClsLyrics" data="/readernook/Antaksharee/img/' + moviename + '.png" type="image/png"><img src="/Antaksharee/img/backup.png" /></object>';   
             }
             newHTML = newHTML + '</div>';
 
@@ -905,7 +905,7 @@ function getsavedSongsList() {
     var emailid = localStorage.getItem("userEmail");
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         type: 'POST',
         data: jQuery.param({
             usrfunction: "getsavedSongsList",
@@ -1045,7 +1045,7 @@ function checkURL() {
 
 
     if (path.indexOf('lyrics/') > 0) {
-        //var songtitle = path.replaceAll("/antaksharee/lyrics/","");
+        //var songtitle = path.replaceAll("/readernook/Antaksharee/lyrics/","");
         var songtitle = path.substring(path.indexOf("lyrics/") + 7);
         getItemLyrics(songtitle);
         return;
@@ -1057,7 +1057,7 @@ function checkURL() {
     }
 
     if (path.indexOf('starting/') > 0) {
-        //var songtitle = path.replaceAll("/antaksharee/lyrics/","");
+        //var songtitle = path.replaceAll("/readernook/Antaksharee/lyrics/","");
         var starting = path.substring(path.indexOf("starting/") + 39);
         onlyProceedWhenItemListIsAvailable();
         getSongsStarting(starting);
@@ -1065,7 +1065,7 @@ function checkURL() {
     }
 
     if (path.indexOf('movie/') > 0) {
-        //var songtitle = path.replaceAll("/antaksharee/lyrics/","");
+        //var songtitle = path.replaceAll("/readernook/Antaksharee/lyrics/","");
         var movie = path.substring(path.indexOf("movie/") + 31);
         onlyProceedWhenItemListIsAvailable();
         getSongsOfMovie(movie);
@@ -1073,7 +1073,7 @@ function checkURL() {
     }
 
     if (path.indexOf('writer/') > 0) {
-        //var songtitle = path.replaceAll("/antaksharee/lyrics/","");
+        //var songtitle = path.replaceAll("/readernook/Antaksharee/lyrics/","");
         var writer = path.substring(path.indexOf("writer/") + 33);
         onlyProceedWhenItemListIsAvailable();
         getSongsOfWriter(writer);
@@ -1081,7 +1081,7 @@ function checkURL() {
     }
 
     if (path.indexOf('music/') > 0) {
-        //var songtitle = path.replaceAll("/antaksharee/lyrics/","");
+        //var songtitle = path.replaceAll("/readernook/Antaksharee/lyrics/","");
         var artist = path.substring(path.indexOf("music/") + 25);
         onlyProceedWhenItemListIsAvailable();
         getSongsOfMusicComposer(artist);
@@ -1089,7 +1089,7 @@ function checkURL() {
     }
 
     if (path.indexOf('singer/') > 0) {
-        //var songtitle = path.replaceAll("/antaksharee/lyrics/","");
+        //var songtitle = path.replaceAll("/readernook/Antaksharee/lyrics/","");
         var singer = path.substring(path.indexOf("singer/") + 33);
         onlyProceedWhenItemListIsAvailable();
         getSongsOfSinger(singer);
@@ -1262,7 +1262,7 @@ function populateItemList() {
         // }
         
 
-        innerHTML = innerHTML +  '<a href ="'+ songTitleURL +'"> <span class="songTitleSpan"  > <h2 class="songTitleH2" >' + rows[i].songtitle + '  <img class="movieImageClsMini" onerror="hideMe(this)" alt="' + rows[i].moviename + '" src="/Antaksharee/img/' + rows[i].moviename + '.png"></h2> </span> </a>' ;
+        innerHTML = innerHTML +  '<a href ="'+ songTitleURL +'"> <span class="songTitleSpan"  > <h2 class="songTitleH2" >' + rows[i].songtitle + '  <img class="movieImageClsMini" onerror="hideMe(this)" alt="' + rows[i].moviename + '" src="/readernook/Antaksharee/img/' + rows[i].moviename + '.png"></h2> </span> </a>' ;
 
         innerHTML = innerHTML + '<div id = "hiddenDiv' + i + '" class="hiddencontent">';
         innerHTML = innerHTML + rows[i].songlyrics;
@@ -1719,7 +1719,7 @@ function showMoreSongs(category){
 
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         type: 'POST',
         data: jQuery.param({
             usrfunction: "getCategoryItems",
@@ -1756,7 +1756,7 @@ function showMoreSongs(category){
                 }
         
                 innerHTML = innerHTML + '<div class="menucard '+ categorySqueezed +'" >';
-                innerHTML = innerHTML +  '<a href ="'+ songTitleURL +'"> <span class="songTitleSpan"  > <h2 class="songTitleH2" >' + rows[i].songtitle + '<img class="movieImageClsMini" onerror="hideMe(this)" alt="' + rows[i].moviename + '" src="/Antaksharee/img/' + rows[i].moviename + '.png"></h2></span> </a>' ;
+                innerHTML = innerHTML +  '<a href ="'+ songTitleURL +'"> <span class="songTitleSpan"  > <h2 class="songTitleH2" >' + rows[i].songtitle + '<img class="movieImageClsMini" onerror="hideMe(this)" alt="' + rows[i].moviename + '" src="/readernook/Antaksharee/img/' + rows[i].moviename + '.png"></h2></span> </a>' ;
         
                 innerHTML = innerHTML + '<div id = "hiddenDiv' + i + '" class="hiddencontent">';
                 innerHTML = innerHTML + rows[i].songlyrics;
@@ -2427,7 +2427,7 @@ function showFilteredItems(rows){
 
         innerHTML = innerHTML + '<div class="menucard '+ rows[i].category +'" >';
 
-        innerHTML = innerHTML +  '<a href ="'+ lyricsUrl +'"> <span class="songTitleSpan"   > <h2 class="songTitleH2" >' + rows[i].songtitle + '<img class="movieImageClsMini" onerror="hideMe(this)" alt="' + rows[i].moviename + '" src="/Antaksharee/img/' + rows[i].moviename + '.png"></h2></span> </a>' ;
+        innerHTML = innerHTML +  '<a href ="'+ lyricsUrl +'"> <span class="songTitleSpan"   > <h2 class="songTitleH2" >' + rows[i].songtitle + '<img class="movieImageClsMini" onerror="hideMe(this)" alt="' + rows[i].moviename + '" src="/readernook/Antaksharee/img/' + rows[i].moviename + '.png"></h2></span> </a>' ;
 
         innerHTML = innerHTML + '<div id = "hiddenDiv' + i + '" class="hiddencontent">';
         innerHTML = innerHTML + rows[i].songlyrics;
@@ -2616,7 +2616,7 @@ function resetSearch() {
 function activateAccount(pass) {
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         type: 'POST',
         data: jQuery.param({
             usrfunction: "activateAcc",
@@ -2722,7 +2722,7 @@ function setPassword() {
     var StrAddress = "";
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         data: {
             usrpassword: StrPass,
             resetkey: resetkey,
@@ -2855,7 +2855,7 @@ function login() {
 	}
 	
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         data: {
             usremail: StrEmail,
             usrpassword: StrPass,
@@ -2931,7 +2931,7 @@ function UpdateSavedSongsList(){
 	}
     var StrEmail = sessionStorage.getItem("StrEmail");
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         data: {
             customerEmailId: StrEmail,
             list: list,
@@ -2960,7 +2960,7 @@ function UpdateLoveCount(itemid){
     var error_message = "";
 
      $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         data: {
             itemid: itemid,
             usrfunction: StrFunction
@@ -3126,7 +3126,7 @@ function updateItem(itemid, createNewItem) {
     }
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         data: {
             usremail: usremail,
             itemid: itemid,
@@ -3221,7 +3221,7 @@ function loginWithoutRefresh() {
     }
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         data: {
             usremail: StrEmail,
             usrpassword: StrPass,
@@ -3286,7 +3286,7 @@ function Logout() {
     sessionStorage.setItem("cartTotal", null);
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         data: {
             usrfunction: StrFunction
         },
@@ -3392,7 +3392,7 @@ function register() {
     var StrAddress = "";
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         data: {
             usremail: StrEmail,
             usrpassword: StrPass,
@@ -3501,7 +3501,7 @@ function Subregister() {
     var StrAddress = "";
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         data: {
             usremail: StrEmail,
             usrpassword: StrPass,
@@ -3573,7 +3573,7 @@ function forgotpw() {
 
 
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         data: {
             usremail: StrEmail,
             usrfunction: StrFunction
@@ -3667,7 +3667,7 @@ function contactus() {
 		return;
 	}
     $.ajax({
-        url: '/antaksharee/php/process.php',
+        url: '/readernook/Antaksharee/php/process.php',
         data: {
             usrname: StrName,
             usremail: StrEmail,
